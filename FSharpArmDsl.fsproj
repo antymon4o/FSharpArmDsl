@@ -6,6 +6,7 @@
   <ItemGroup>
     <Compile Include="JsonConverters.fs" />
     <Compile Include="Network\Common.fs" />
+    <Compile Include="Network\PublicIPAddress\PublicIPAddressResource.fs" />
     <Compile Include="Network\VirtualNetwork\Subnet\SubnetResource.fs" />
     <Compile Include="Network\VirtualNetwork\VirtualNetworkResource.fs" />
     <Compile Include="StorageAccount\Common.fs" />
