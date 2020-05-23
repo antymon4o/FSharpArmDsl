@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="JsonConverters.fs" />
+    <Compile Include="Network\Common.fs" />
+    <Compile Include="Network\VirtualNetwork\Subnet\SubnetResource.fs" />
+    <Compile Include="Network\VirtualNetwork\VirtualNetworkResource.fs" />
+    <Compile Include="StorageAccount\Common.fs" />
+    <Compile Include="StorageAccount\FileService\FileServiceResource.fs" />
+    <Compile Include="StorageAccount\FileService\FileService.fs" />
+    <Compile Include="StorageAccount\BlobService\Container\ContainerResource.fs" />
+    <Compile Include="StorageAccount\BlobService\BlobServiceResource.fs" />
+    <Compile Include="StorageAccount\BlobService\BlobService.fs" />
+    <Compile Include="StorageAccount\StorageAccountResource.fs" />
+    <Compile Include="StorageAccount\StorageAccount.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="paket.dependencies" />
+    <None Include="paket.lock" />
+    <None Include="paket.references" />
+  </ItemGroup>
+  <Import Project=".paket\Paket.Restore.targets" />
+</Project>
