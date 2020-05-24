@@ -104,3 +104,10 @@ and ApplicationSecurityGroup = {
     name: string
     tags: Map<string, string> option
 }
+and IPAddressVersion = IPv4 | IPv6
+and IPAllocationMethod = Static | Dynamic
+and Subnet = {
+    id: string option
+    name: string
+    properties: SubnetProperties option
+}

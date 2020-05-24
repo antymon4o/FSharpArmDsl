@@ -9,6 +9,7 @@ type VirtualNetwork = {
     location: string
     properties: VirtualNetworkProperties
 }
+// todo: add the remaining properties definition!
 and VirtualNetworkProperties = {
     addressSpace: AddressSpace option
     dhcpOptions: DhcpOptions  option
@@ -19,9 +20,4 @@ and AddressSpace = {
 }
 and DhcpOptions = {
     dnsServers: string array
-}
-and Subnet = {
-    id: string option
-    name: string
-    properties: SubnetProperties option
 }

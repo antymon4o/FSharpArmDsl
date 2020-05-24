@@ -9,6 +9,7 @@
     <Compile Include="Network\PublicIPAddress\PublicIPAddressResource.fs" />
     <Compile Include="Network\VirtualNetwork\Subnet\SubnetResource.fs" />
     <Compile Include="Network\VirtualNetwork\VirtualNetworkResource.fs" />
+    <Compile Include="Network\LoadBalancer\LoadBalancerResource.fs" />
     <Compile Include="StorageAccount\Common.fs" />
     <Compile Include="StorageAccount\FileService\FileServiceResource.fs" />
     <Compile Include="StorageAccount\FileService\FileService.fs" />

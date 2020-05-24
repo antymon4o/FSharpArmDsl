@@ -18,22 +18,19 @@ and PublicIPAddressSku = {
 and PublicIPAddressSkuName = Basic | Standard
 and PublicIPAddressProperties = {
     publicIPAllocationMethod: PublicIPAllocationMethod
-    publicIPAddressVersion: PublicIPAddressVersion
+    publicIPAddressVersion: IPAddressVersion
     dnsSettings: PublicIPAddressDnsSettings option
     ddosSettings: DdosSettings option
     ipTags: IpTag array option
     ipAddress: string option
     publicIPPrefix: SubResource option
     idleTimeoutInMinutes: int option
-
 }
 and PublicIPAllocationMethod = Static | NoDynamicInvocationAttribute
-and PublicIPAddressVersion = IPv4 | IPv6
 and PublicIPAddressDnsSettings = {
     domainNameLabel: string option
     fqdn: string option
     reverseFqdn: string option
-
 }
 and DdosSettings  = {
     ddosCustomPolicy: SubResource option
