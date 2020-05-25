@@ -9,15 +9,36 @@ type VirtualNetwork = {
     location: string
     properties: VirtualNetworkProperties
 }
-// todo: add the remaining properties definition!
 and VirtualNetworkProperties = {
     addressSpace: AddressSpace option
     dhcpOptions: DhcpOptions  option
     subnets: Subnet option
+    virtualNetworkPeerings: VirtualNetworkPeering array option
+    enableDdosProtection: bool option
+    enableVmProtection: bool option
+    ddosProtectionPlan: SubResource option
+    bgpCommunities: VirtualNetworkBgpCommunities option
+    ipAllocations: SubResource array option
 }
 and AddressSpace = {
     addressPrefixes: string array
 }
 and DhcpOptions = {
     dnsServers: string array
+}
+and VirtualNetworkPeering = {
+    id: string option
+    properties: VirtualNetworkPeeringProperties option
+    name: string option
+}
+and VirtualNetworkBgpCommunities = {
+    virtualNetworkCommunity: string
+}
+and VirtualNetworkPeeringProperties = {
+    allowVirtualNetworkAccess: bool option
+    allowForwardedTraffic: bool option
+    allowGatewayTransit: bool option
+    useRemoteGateways: bool option
+    remoteVirtualNetwork: SubResource option
+    remoteAddressSpace: AddressSpace option
 }
