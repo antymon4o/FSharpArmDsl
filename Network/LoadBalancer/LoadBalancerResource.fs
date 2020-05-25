@@ -3,6 +3,7 @@
 open NetworkCommon
 open NetworkVirtualNetworkResource
 open NetworkPublicIPAddressResource
+open NetworkInterfaceIPConfiguration
 
 type LoadBalancer = {
     name: string
@@ -25,12 +26,6 @@ and LoadBalancerProperties = {
     inboundNatRules: InboundNatRule array option
     inboundNatPools: InboundNatPool array option
     outboundRules: OutboundRule array option
-}
-and FrontendIPConfiguration = {
-    id: string option
-    properties: FrontendIPConfigurationProperties option
-    name: string option
-    zones: string array option
 }
 and BackendAddressPool = {
     id: string option
@@ -62,17 +57,6 @@ and OutboundRule = {
     properties: OutboundRuleProperties option
     name: string option
 }
-and FrontendIPConfigurationProperties = {
-    privateIPAddress: string option
-    privateIPAllocationMethod: IPAllocationMethod option
-    privateIPAddressVersion: IPAddressVersion option
-    subnet: Subnet option
-    publicIPAddress: PublicIPAddress option
-    publicIPPrefix: SubResource option
-}
-and BackendAddressPoolProperties = {
-    loadBalancerBackendAddresses: LoadBalancerBackendAddress option
-}
 and LoadBalancingRuleProperties = {
     frontendIPConfiguration: SubResource option
     backendAddressPool: SubResource option
@@ -86,8 +70,6 @@ and LoadBalancingRuleProperties = {
     enableTcpReset: bool option
     disableOutboundSnat: bool option
 }
-and LoadBalancerProtocol = Udp | Tcp | All
-and LoadBalancingRuleLoadDistribution = Default | SourceIP | SourceIPProtocol
 and ProbeProperties = {
     protocol: ProbeProtocol
     port: int
@@ -122,29 +104,6 @@ and OutboundRuleProperties = {
     protocol: LoadBalancerProtocol
     enableTcpReset: bool option
     idleTimeoutInMinutes: int option
-}
-and PublicIPAddress = {
-    id: string option
-    location: string option
-    tags: Map<string, string>
-    sku: PublicIPAddressSku option
-    properties: PublicIPAddressProperties option
-    zones: string array option
-}
-and LoadBalancerBackendAddress = {
-    properties: LoadBalancerBackendAddressProperties option
-    name: string option
-}
-and LoadBalancerBackendAddressProperties = {
-    virtualNetwork: VirtualNetwork option
-    ipAddress: string option
-    networkInterfaceIPConfiguration: NetworkInterfaceIPConfiguration option
-}
-and VirtualNetwork = {
-    id: string option
-    location: string option
-    tags: Map<string, string>
-    properties: VirtualNetworkProperties option
 }
 and NetworkInterfaceIPConfiguration = {
     id: string option

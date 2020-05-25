@@ -111,3 +111,5 @@ and Subnet = {
     name: string
     properties: SubnetProperties option
 }
+and LoadBalancerProtocol = Udp | Tcp | All
+and LoadBalancingRuleLoadDistribution = Default | SourceIP | SourceIPProtocol
