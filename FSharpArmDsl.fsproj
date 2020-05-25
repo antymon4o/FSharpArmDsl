@@ -22,6 +22,7 @@
     <Compile Include="StorageAccount\BlobService\BlobService.fs" />
     <Compile Include="StorageAccount\StorageAccountResource.fs" />
     <Compile Include="StorageAccount\StorageAccount.fs" />
+    <Compile Include="VirtualMachineScaleSet\VirtualMachineScaleSetResource.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>
