@@ -4,11 +4,13 @@ open NetworkCommon
 open NetworkVirtualNetworkResource
 open NetworkPublicIPAddressResource
 open NetworkInterfaceIPConfiguration
+open Newtonsoft.Json
+open JsonConverters
 
 type LoadBalancer = {
-    name: string
-    ``type``: string
     apiVersion: string
+    ``type``: string
+    name: string
     location: string option
     tags: Map<string, string> option
     sku: LoadBalancerSku option
@@ -27,35 +29,35 @@ and LoadBalancerProperties = {
     inboundNatPools: InboundNatPool array option
     outboundRules: OutboundRule array option
 }
-and BackendAddressPool = {
-    id: string option
-    properties: BackendAddressPoolProperties option
-    name: string option
-}
+//and BackendAddressPool = {
+//    id: string option
+//    properties: BackendAddressPoolProperties option
+//    name: string option
+//}
 and LoadBalancingRule = {
     id: string option
-    properties: LoadBalancingRuleProperties option
     name: string option
+    properties: LoadBalancingRuleProperties option
 }
 and Probe = {
     id: string option
-    properties: ProbeProperties option
     name: string option
+    properties: ProbeProperties option
 }
 and InboundNatRule = {
     id: string option
-    properties: InboundNatRuleProperties option
     name: string option
+    properties: InboundNatRuleProperties option
 }
 and InboundNatPool = {
     id: string option
-    properties: InboundNatPoolProperties option
     name: string option
+    properties: InboundNatPoolProperties option
 }
 and OutboundRule = {
     id: string option
-    properties: OutboundRuleProperties option
     name: string option
+    properties: OutboundRuleProperties option
 }
 and LoadBalancingRuleProperties = {
     frontendIPConfiguration: SubResource option
@@ -77,7 +79,8 @@ and ProbeProperties = {
     numberOfProbes: int option
     requestPath: string option
 }
-and ProbeProtocol = Http | Tcp | Https
+and [<JsonConverter(typeof<ToStringJsonConverter>)>]
+ProbeProtocol = Http | Tcp | Https
 and InboundNatRuleProperties = {
     frontendIPConfiguration: SubResource option
     protocol: LoadBalancerProtocol option
@@ -107,8 +110,8 @@ and OutboundRuleProperties = {
 }
 and NetworkInterfaceIPConfiguration = {
     id: string option
-    properties: NetworkInterfaceIPConfigurationProperties option
     name: string option
+    properties: NetworkInterfaceIPConfigurationProperties option
 }
 and NetworkInterfaceIPConfigurationProperties = {
     virtualNetworkTaps: VirtualNetworkTap array option
@@ -131,8 +134,8 @@ and VirtualNetworkTap = {
 }
 and ApplicationGatewayBackendAddressPool = {
     id: string option
-    properties: ApplicationGatewayBackendAddressPoolProperties option
     name: string option
+    properties: ApplicationGatewayBackendAddressPoolProperties option
 }
 and VirtualNetworkTapProperties = {
     destinationNetworkInterfaceIPConfiguration: NetworkInterfaceIPConfiguration option

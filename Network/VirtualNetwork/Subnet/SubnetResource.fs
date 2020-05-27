@@ -3,9 +3,9 @@
 open NetworkCommon
 
 type Subnet = {
-    name: string
-    ``type``: string
     apiVersion: string
+    ``type``: string
+    name: string
     location: string
     properties: SubnetProperties
 }

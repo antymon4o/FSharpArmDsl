@@ -3,16 +3,16 @@
 open NetworkCommon
 
 type VirtualNetwork = {
-    name: string
-    ``type``: string
     apiVersion: string
+    ``type``: string
+    name: string
     location: string
     properties: VirtualNetworkProperties
 }
 and VirtualNetworkProperties = {
     addressSpace: AddressSpace option
     dhcpOptions: DhcpOptions  option
-    subnets: Subnet option
+    subnets: Subnet array option
     virtualNetworkPeerings: VirtualNetworkPeering array option
     enableDdosProtection: bool option
     enableVmProtection: bool option

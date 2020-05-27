@@ -1,5 +1,8 @@
 ﻿module NetworkCommon
 
+open Newtonsoft.Json
+open JsonConverters
+
 type SubnetProperties = {
     addressPrefix: string option
     addressPrefixes: string array option
@@ -60,7 +63,7 @@ and RouteProperties = {
     nextHopType: NextHopType
     nextHopIpAddress: string option
 }
-and NextHopType = VirtualNetworkGateway | VnetLocal | Internet | VirtualAppliance | None
+and NextHopType = VirtualNetworkGateway | VnetLocal | Internet | VirtualAppliance //| None
 and ServiceEndpointPolicyDefinitionProperties = {
     description: string option
     service: string option
@@ -111,5 +114,6 @@ and Subnet = {
     name: string
     properties: SubnetProperties option
 }
-and LoadBalancerProtocol = Udp | Tcp | All
+and [<JsonConverter(typeof<ToStringJsonConverter>)>]
+LoadBalancerProtocol = Udp | Tcp | All
 and LoadBalancingRuleLoadDistribution = Default | SourceIP | SourceIPProtocol

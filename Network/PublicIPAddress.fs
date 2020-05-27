@@ -5,7 +5,7 @@ open NetworkCommon
 type PublicIPAddress = {
     id: string option
     location: string option
-    tags: Map<string, string>
+    tags: Map<string, string> option
     sku: PublicIPAddressSku option
     properties: PublicIPAddressProperties option
     zones: string array option
@@ -15,8 +15,8 @@ and PublicIPAddressSku = {
 }
 and PublicIPAddressSkuName = Basic | Standard
 and PublicIPAddressProperties = {
-    publicIPAllocationMethod: PublicIPAllocationMethod
-    publicIPAddressVersion: IPAddressVersion
+    publicIPAllocationMethod: PublicIPAllocationMethod option
+    publicIPAddressVersion: IPAddressVersion option
     dnsSettings: PublicIPAddressDnsSettings option
     ddosSettings: DdosSettings option
     ipTags: IpTag array option

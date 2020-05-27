@@ -3,9 +3,9 @@
 open NetworkInterfaceIPConfiguration
 
 type BackendAddressPool = {
-    name: string
-    ``type``: string
     apiVersion: string
+    ``type``: string
+    name: string
     properties: BackendAddressPoolProperties
 }
 and BackendAddressPoolProperties = {

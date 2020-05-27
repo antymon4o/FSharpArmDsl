@@ -1,5 +1,4 @@
-﻿[<AutoOpen>]
-module StorageAccount
+﻿module StorageAccount
 
 open StorageAccountResource
 

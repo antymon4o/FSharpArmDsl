@@ -3,10 +3,10 @@
 open NetworkPublicIPAddress
 
 type PublicIPAddress = {
-    name: string
-    ``type``: string
     apiVersion: string
-    location: string
+    ``type``: string
+    name: string
+    location: string option
     tags: Map<string, string> option
     sku: PublicIPAddressSku option
     properties: PublicIPAddressProperties

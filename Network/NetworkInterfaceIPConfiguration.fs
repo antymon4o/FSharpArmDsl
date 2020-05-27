@@ -6,8 +6,8 @@ open NetworkVirtualNetworkResource
 
 type NetworkInterfaceIPConfiguration = {
     id: string option
-    properties: NetworkInterfaceIPConfigurationProperties option
     name: string option
+    properties: NetworkInterfaceIPConfigurationProperties option
 }
 and NetworkInterfaceIPConfigurationProperties = {
     virtualNetworkTaps: VirtualNetworkTap array option
@@ -30,8 +30,8 @@ and VirtualNetworkTap = {
 }
 and ApplicationGatewayBackendAddressPool = {
     id: string option
-    properties: ApplicationGatewayBackendAddressPoolProperties option
     name: string option
+    properties: ApplicationGatewayBackendAddressPoolProperties option
 }
 and VirtualNetworkTapProperties = {
     destinationNetworkInterfaceIPConfiguration: NetworkInterfaceIPConfiguration option
@@ -47,13 +47,13 @@ and ApplicationGatewayBackendAddress = {
 }
 and BackendAddressPool = {
     id: string option
-    properties: BackendAddressPoolProperties option
     name: string option
+    properties: BackendAddressPoolProperties option
 }
 and InboundNatRule = {
     id: string option
-    properties: InboundNatRuleProperties option
     name: string option
+    properties: InboundNatRuleProperties option
 }
 and InboundNatRuleProperties = {
     frontendIPConfiguration: SubResource option
@@ -66,8 +66,8 @@ and InboundNatRuleProperties = {
 }
 and FrontendIPConfiguration = {
     id: string option
-    properties: FrontendIPConfigurationProperties option
     name: string option
+    properties: FrontendIPConfigurationProperties option
     zones: string array option
 }
 and FrontendIPConfigurationProperties = {
@@ -82,8 +82,8 @@ and BackendAddressPoolProperties = {
     loadBalancerBackendAddresses: LoadBalancerBackendAddress option
 }
 and LoadBalancerBackendAddress = {
-    properties: LoadBalancerBackendAddressProperties option
     name: string option
+    properties: LoadBalancerBackendAddressProperties option
 }
 and LoadBalancerBackendAddressProperties = {
     virtualNetwork: VirtualNetwork option

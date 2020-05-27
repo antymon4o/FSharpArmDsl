@@ -8,12 +8,15 @@
     <Compile Include="Network\Common.fs" />
     <Compile Include="Network\PublicIPAddress.fs" />
     <Compile Include="Network\PublicIPAddress\PublicIPAddressResource.fs" />
+    <Compile Include="Network\PublicIPAddress\PublicIPAddressBuilder.fs" />
     <Compile Include="Network\VirtualNetwork\Subnet\SubnetResource.fs" />
     <Compile Include="Network\VirtualNetwork\VirtualNetworkResource.fs" />
+    <Compile Include="Network\VirtualNetwork\VirtualNetworkBuilder.fs" />
     <Compile Include="Network\NetworkInterfaceIPConfiguration.fs" />
     <Compile Include="Network\LoadBalancer\InboundNatRule\InboundNatRuleResource.fs" />
     <Compile Include="Network\LoadBalancer\BackendAddressPool\BackendAddressPoolResource.fs" />
     <Compile Include="Network\LoadBalancer\LoadBalancerResource.fs" />
+    <Compile Include="Network\LoadBalancer\LoadBalancerBuilder.fs" />
     <Compile Include="StorageAccount\Common.fs" />
     <Compile Include="StorageAccount\FileService\FileServiceResource.fs" />
     <Compile Include="StorageAccount\FileService\FileService.fs" />
@@ -23,6 +26,7 @@
     <Compile Include="StorageAccount\StorageAccountResource.fs" />
     <Compile Include="StorageAccount\StorageAccount.fs" />
     <Compile Include="VirtualMachineScaleSet\VirtualMachineScaleSetResource.fs" />
+    <Compile Include="VirtualMachineScaleSet\Extension\ExtensionResource.fs" />
     <Compile Include="ServiceFabric\Cluster\ClusterResource.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>

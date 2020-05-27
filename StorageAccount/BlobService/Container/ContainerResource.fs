@@ -1,9 +1,9 @@
 ﻿module ContainerResource
 
 type Container = {
-    name: string
-    ``type``: string
     apiVersion: string
+    ``type``: string
+    name: string
     properties: ContainerProperties 
 }
 and ContainerProperties = {

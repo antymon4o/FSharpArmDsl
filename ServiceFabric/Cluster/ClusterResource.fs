@@ -1,9 +1,9 @@
 ﻿module ServiceFabricClusterResource
 
 type Cluster = {
-    name: string
-    ``type``: string
     apiVersion: string
+    ``type``: string
+    name: string
     location: string
     tags: Map<string, string> option
     properties: ClusterProperties 

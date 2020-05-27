@@ -3,8 +3,8 @@
 open NetworkInterfaceIPConfiguration
 
 type InboundNatRule = {
-    name: string
-    ``type``: string
     apiVersion: string
+    ``type``: string
+    name: string
     properties: InboundNatRuleProperties
 }

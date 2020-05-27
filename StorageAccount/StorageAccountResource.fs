@@ -5,9 +5,9 @@ open Newtonsoft.Json
 open JsonConverters
 
 type StorageAccount = {
-    name: string
-    ``type``: string
     apiVersion: string
+    ``type``: string
+    name: string
     sku: Sku
     kind: Kind
     location: string

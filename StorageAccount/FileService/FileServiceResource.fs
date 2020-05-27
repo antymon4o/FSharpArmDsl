@@ -3,9 +3,9 @@
 open StorageAccountCommon
 
 type FileService = {
-    name: string
-    ``type``: string
     apiVersion: string
+    ``type``: string
+    name: string
     properties: FileServiceProperties
 }
 and FileServiceProperties = {
