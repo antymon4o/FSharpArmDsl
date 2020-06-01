@@ -1,6 +1,8 @@
 ﻿module VirtualMachineScaleSetResource
 
 open NetworkCommon
+open Newtonsoft.Json
+open JsonConverters
 
 type VirtualMachineScaleSet = {
     apiVersion: string
@@ -43,13 +45,14 @@ and VirtualMachineScaleSetIdentity = {
     ``type``: VirtualMachineScaleSetIdentityType option 
     userAssignedIdentities: Map<string, string>
 }
-and VirtualMachineScaleSetIdentityType = SystemAssigned | UserAssigned | None
+and VirtualMachineScaleSetIdentityType = SystemAssigned | UserAssigned // | None
 and UpgradePolicy = {
     mode: UpgradePolicyMode option
     rollingUpgradePolicy: RollingUpgradePolicy option
     automaticOSUpgradePolicy: AutomaticOSUpgradePolicy option
 }
-and UpgradePolicyMode = Manual | Automatic
+and [<JsonConverter(typeof<ToStringJsonConverter>)>]
+UpgradePolicyMode = Manual | Automatic
 and AutomaticRepairsPolicy = {
     enabled: bool option
     gracePeriod: string option
@@ -62,7 +65,7 @@ and VirtualMachineScaleSetVMProfile = {
     extensionProfile: VirtualMachineScaleSetExtensionProfile option
     licenseType: LicenseType option
     priority: Priority option
-    evictionPolicy: EvictionPolicy
+    evictionPolicy: EvictionPolicy option
     billingProfile: BillingProfile option
     scheduledEventsProfile: ScheduledEventsProfile option
 }
@@ -151,8 +154,10 @@ and VirtualMachineScaleSetOSDisk = {
     vhdContainers: string array option
     managedDisk: VirtualMachineScaleSetManagedDiskParameters option
 }
-and Caching = None | ReadOnly | ReadWrite
-and CreateOption = FromImage | Empty | Attach
+and [<JsonConverter(typeof<ToStringJsonConverter>)>]
+Caching = ReadOnly | ReadWrite // None | 
+and [<JsonConverter(typeof<ToStringJsonConverter>)>]
+CreateOption = FromImage | Empty | Attach
 and OsType = Windows | Linux
 and VirtualMachineScaleSetDataDisk = {
     name: string option
@@ -213,22 +218,23 @@ and VirtualMachineScaleSetManagedDiskParameters = {
     storageAccountType: StorageAccountType option 
     diskEncryptionSet: DiskEncryptionSetParameters option
 }
-and StorageAccountType = Standard_LRS | Premium_LRS | StandardSSD_LRS |UltraSSD_LRS
+and [<JsonConverter(typeof<ToStringJsonConverter>)>]
+StorageAccountType = Standard_LRS | Premium_LRS | StandardSSD_LRS | UltraSSD_LRS
 and VirtualMachineScaleSetNetworkConfigurationProperties = {
     primary: bool option
     enableAcceleratedNetworking: bool option
     networkSecurityGroup: SubResource option
     dnsSettings:  VirtualMachineScaleSetNetworkConfigurationDnsSettings option
-    ipConfigurations: VirtualMachineScaleSetIPConfiguration option
+    ipConfigurations: VirtualMachineScaleSetIPConfiguration array option
     enableIPForwarding: bool option
 }
 and VirtualMachineScaleSetExtensionProperties = {
-    publisher: string option
     ``type``: string option
-    typeHandlerVersion: string option
     autoUpgradeMinorVersion: bool option
-    settings: obj option
     protectedSettings: obj option
+    publisher: string option
+    settings: obj option
+    typeHandlerVersion: string option
     provisionAfterExtensions: string array option
 }
 and WinRMListener = {

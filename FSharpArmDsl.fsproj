@@ -26,6 +26,7 @@
     <Compile Include="StorageAccount\StorageAccountResource.fs" />
     <Compile Include="StorageAccount\StorageAccount.fs" />
     <Compile Include="VirtualMachineScaleSet\VirtualMachineScaleSetResource.fs" />
+    <Compile Include="VirtualMachineScaleSet\VirtualMachineScaleSetBuilder.fs" />
     <Compile Include="VirtualMachineScaleSet\Extension\ExtensionResource.fs" />
     <Compile Include="ServiceFabric\Cluster\ClusterResource.fs" />
     <Compile Include="Program.fs" />
